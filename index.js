@@ -26,10 +26,16 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  *
  * 1. What is the difference between counter1 and counter2?
+ * 
+ * counter1 uses function level scope to get the value for the count variable whereas counter2 uses global scope. Counter1 also tiles the value of const counter1 to the function, wheereas counter 2 does not. 
  *
  * 2. Which of the two uses a closure? How can you tell?
+ * 
+ * counter1 uses closure by giving the variable counter1 access to the value of the inner function for countermaker() by assigning counter1s value to the function.
  *
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better?
+ * 
+ * counter1 would be preferable if you need to easily reference that function as a value or use it as a callback to another, whereas 2 would be preferable for quick deployment, low functionality. 
  *
  */
 
@@ -73,12 +79,11 @@ finalScore(inning, 9) might return:
 
 */
 
-function finalScore(callback, inningCount) {
+function finalScore(inning, inningCount) {
   let gameFinal={};
-  let homeCalc="Home:"+callback()*inningCount;
-  let awayCalc="Away:"+callback()*inningCount;
-  gameFinal[0]=homeCalc;
-  gameFinal[1]=awayCalc;
+  let homeCalc="Home:"+inning()*inningCount;
+  let awayCalc="Away:"+inning()*inningCount;
+  gameFinal.FinalScore=homeCalc+" "+awayCalc;
   return gameFinal;
 }
 
