@@ -42,6 +42,9 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+A closure is a way to reference a function for use within another in compliance with the rules of scope.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -62,9 +65,17 @@ dansRoll();
 dansRoll();
 ```
 
-a. Where is closure used in this code? How can you tell?
+a. Where is closure used in this code? How can you tell? 
+
+When creating the const dansRoll and zoesRoll, because you're creating a scope compliant, easy way to access a function within a function.
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+The actual dice outcome can change and the name can change, but the in-between text like "rolled a" will not change.
+
 c. What is the lexical scope of `newRoll`? 
+
+newRoll has function scope 
 
 ### Task 2c - Exit Ticket
 
