@@ -79,13 +79,18 @@ finalScore(inning, 9) might return:
 
 */
 
-function finalScore(inning, inningCount) {
+function finalScore2(callback) {
   let gameFinal={};
-  let homeCalc="Home:"+inning()*inningCount;
-  let awayCalc="Away:"+inning()*inningCount;
-  gameFinal.FinalScore=homeCalc+" "+awayCalc;
+  let totalHomeScore=0;
+  let totalAwayScore=0;
+  for (let i=1; i<10; i++){
+  let homeCalc=callback()*i;
+  let awayCalc=callback()*i;
+  gameFinal["Inning "+i]=`Home: ${totalHomeScore}, Away: ${totalAwayScore}`;
+  totalHomeScore+=homeCalc;
+  totalAwayScore+=awayCalc;
+  }
   return gameFinal;
-}
 
 /* Task 4: 
 
@@ -107,37 +112,22 @@ and returns the score at each pont in the game, like so:
 9th inning: awayTeam - homeTeam
 Final Score: awayTeam - homeTeam */
 
-/* For Just 1 Inning */
-
-function finalScore(callback, inningCount) {
-  let gameFinal={};
-  let homeCalc="Home:"+callback()*inningCount;
-  let awayCalc="Away:"+callback()*inningCount;
-  gameFinal[0]=homeCalc;
-  gameFinal[1]=awayCalc;
-  return gameFinal;
-}
-
-function scoreboard(callback1, callback2, inningCount) {
-  for (let i=0; i<9; i++){
-  return callback1(callback2, i);
-  }
-}
-scoreboard(finalScore,inning,9);
-
-
 /* For All 9 At A Time */
 
 function finalScore2(callback) {
   let gameFinal={};
+  let totalHomeScore=0;
+  let totalAwayScore=0;
   for (let i=1; i<10; i++){
-  let homeCalc="Home:"+callback()*i;
-  let awayCalc="Away:"+callback()*i;
-  gameFinal["Inning "+i]=homeCalc+" "+awayCalc;
+  let homeCalc=callback()*i;
+  let awayCalc=callback()*i;
+  gameFinal["Inning "+i]=`Home: ${totalHomeScore}, Away: ${totalAwayScore}`;
+  totalHomeScore+=homeCalc;
+  totalAwayScore+=awayCalc;
   }
   return gameFinal;
+  
 }
-
 function scoreboard2(callback1, callback2) {
   console.log(callback1(callback2));
   }
